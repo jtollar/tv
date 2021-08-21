@@ -19,15 +19,15 @@ window.tv.config('tv.config.streams.tv_hu_mediaklikk', {
 
         url   : 'https://player.mediaklikk.hu/playernew/player.php?'
         +'video=mtv1live' +
-            '&noflash=yes' +
+            // '&noflash=yes' +
             // '&vastpreroll=https%3A%2F%2Fpubads.g.doubleclick.net%2Fgampad%2Flive%2Fads%3Fiu%3D%2F22652647%2Fm1_preroll%26description_url%3Dhttp%253A%252F%252Fmediaklikk.hu%252F%26tfcd%3D0%26npa%3D0%26sz%3D640x360%26gdfp_req%3D1%26output%3Dvast%26unviewed_position_start%3D1%26env%3Dvp%26impl%3Ds%26correlator%3D' +
             // '&osfamily=Windows' +
             // '&osversion=10' +
             // '&browsername=Chrome' +
             // '&browserversion=92.0.4515.159' +
-            '&title=M1' +
-            '&contentid=mtv1live' +
-            '&embedded=0',
+            // '&title=M1' +
+            // '&contentid=mtv1live' +
+            '&embedded=1',
         iframe: iframe1,
 
         // url   : 'https://player.mediaklikk.hu/playernew/player.php?video=mtv1live',
