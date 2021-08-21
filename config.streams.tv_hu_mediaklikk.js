@@ -32,8 +32,12 @@ window.tv.config('tv.config.streams.tv_hu_mediaklikk', {
             // '&embedded=1',
         // iframe: iframe1,
 
-        url : 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCHJ8gW2vKH5R3VohymtBCrQ&modestbranding=1',
-        iframe: iframe1,
+        // url : 'https://www.youtube-nocookie.com/embed/live_stream?channel=UCHJ8gW2vKH5R3VohymtBCrQ&modestbranding=1',
+        // iframe: iframe1,
+
+        url : 'https://c202-node61-cdn.connectmedia.hu/1100/b0ad59e6533ac06c7931419d1a05fc3b/612109',
+        video: video,
+
 
         // url   : 'https://player.mediaklikk.hu/playernew/player.php?video=mtv1live',
         // iframe: iframe1,
