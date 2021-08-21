@@ -47,7 +47,12 @@ window.tv.config('tv.config.streams.yt_vr', {
         title  : 'SteveKnows',
         list   : 'yt.gaming.vr',
     },
-	
+    'virtual_insider' : {
+        ...youtube({playlist : 'UUJFSq0-05sUbvgJYV8biODg'}),
+        iframe : iframe1,
+        title  : 'Virtual Insider',
+        list   : 'yt.gaming.vr',
+    }
 });
 window.tv.config('tv.config.streams.yt_science', {
     'terra_lesch' : {
@@ -118,6 +123,18 @@ window.tv.config('tv.config.streams.yt_gaming', {
         title  : 'HandOfUncut',
         list   : 'yt.gaming',
     },
+    'mandalore_gaming' : {
+        ...youtube({playlist : 'UUlOGLGPOqlAiLmOvXW5lKbw'}),
+        iframe : iframe1,
+        title  : 'Mandalore Gaming',
+        list   : 'yt.gaming',
+    },
+    'nightdive_studios' : {
+        ...youtube({playlist : 'UUNFs4mUpyf3GxBbfLSty78A'}),
+        iframe : iframe1,
+        title  : 'Nightdive Studios',
+        list   : 'yt.gaming',
+    }
 });
 
 function youtube({playlist = null, channel = null}) {

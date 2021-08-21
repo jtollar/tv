@@ -1,1 +1,527 @@
-body,html{height:100%}body{margin:0 auto;background:#000}div.ul-container{position:absolute;top:0;z-index:9999}div.ul-container>ul{overflow-y:hidden;margin:0 auto;background:none}div.ul-container>ul>li.category.active>ul{display:none}div.ul-container>ul:hover{max-height:100vh}div.ul-container>ul:hover>li.category.active>ul{display:block}div.ul-container:hover>ul,div.ul-container:hover ul{overflow-y:auto}div.ul-container.theme-white-on-black>ul>li.category{background:rgba(0,0,0,.5);color:#fff}div.ul-container.theme-black-on-white>ul>li.category{background:hsla(0,0%,100%,.5);color:#000}div.ul-container.theme-white-on-transparent>ul>li.category{background:transparent;color:#fff;text-shadow:0 0 5px #000}div.ul-container ::-webkit-scrollbar{width:30px;margin-right:-30px}div.ul-container ::-webkit-scrollbar-thumb{border:1px solid #000;background:hsla(0,0%,100%,.5);-webkit-border-radius:1ex;-webkit-box-shadow:0 1px 2px rgba(0,0,0,.75)}ul{padding:2px;margin:0 5px;background:transparent;border-left:1px solid hsla(0,0%,100%,.5);border-top:1px solid hsla(0,0%,100%,.5);border-top-left-radius:5px;width:auto;display:inline-flex}ul:first-child{border:none}li.category>div>span.title,ul li div.left+span.title{display:none}ul:hover li.category>div>span.title,ul:hover li div.left+span.title{display:inline-block}ul li{list-style-type:none;cursor:pointer;text-overflow:ellipsis;white-space:nowrap;width:auto;overflow:hidden;display:flex;align-items:center;border-radius:5px;padding:3px 5px}ul li.category{background:transparent}ul li.active:not(.category){background-color:#90ee90}ul li.active:not(.category):hover{background-color:#d3d3d3}ul li:not(.category):hover{background-color:#90ee90}ul li.active:not(.category):after{background:#d3d3d3;border-radius:5px;padding-left:2px}span.open-close{color:#000;font-weight:700;background:#fff;border-radius:20px;width:20px;position:absolute;top:50%;text-align:center;padding:10px 5px;font-size:2em;right:-16px;border:1px solid grey;display:none}span.open-close:hover{cursor:pointer}div.left{width:30px;display:flex;justify-content:center;align-items:center}div.left img.tv-icon{height:auto;max-height:20px;width:auto;max-width:30px}div.left img.tv-icon.icon-ard-blue{background-color:#001a4b}div.left+span.title{padding-left:5px}li{height:100%}li.category{display:inline-flex;flex-direction:column}li.category ul{width:100%}li.category>div{display:flex;flex-direction:row;width:100%;line-height:100%;padding-left:10px}li.category>div:before{content:"›";height:16px;text-align:center;width:30px;font-size:1.5em;transform:rotate(0deg);transition:transform .1s}li.category.active>div:before{transform:rotate(90deg)}li.category.active>ul{display:block}li.category:not(.active)>ul{display:none}iframe{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)}iframe#iframe1{width:calc(177.77778vh - 20px);height:100vh;max-width:100vw;max-height:100vh;display:none;margin:0 auto}iframe#frame video{width:100%}@media(min-height:calc(9/16 * 100vw)){iframe#iframe1:not([src*=youtube]){margin-top:calc(50vh - 28.125vw)}body{overflow-y:hidden}}video{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:176.11111vh;height:100vh;max-width:100vw;max-height:100vh;display:none;margin:0 auto}video#test{display:block}table.playlist{border-spacing:0}table.playlist.theme-white-on-transparent{color:#fff;background:transparent;text-shadow:0 0 5px #000}table.playlist.theme-white-on-transparent span.hide{text-shadow:none}table.playlist input{background:none;color:#fff;border-radius:5px;border:1px solid #fff}table.playlist tr.head-sub td,table.playlist tr.head td:first-child{text-align:center}table.playlist tr.head-sub td:nth-child(3){text-align:left;border-left:1px solid #fff}table.playlist td.td-1{text-align:center}table.playlist td.td-2{text-align:left}table.playlist td.td-3{border-left:1px solid #fff}table.playlist tr td{padding:0 5px}table.playlist td span.hide{color:transparent}table.playlist.small td span.title{white-space:nowrap;text-overflow:ellipsis;max-width:140px;overflow:hidden;display:inline-block}table.playlist.small .small-hide{display:none}table.playlist.small .small-title{white-space:nowrap;text-overflow:ellipsis;max-width:90px;overflow:hidden;display:inline-block}table.playlist.hide{display:none}table.playlist tr.play{background:#90ee90}table.playlist tr.play td:first-child{border-top-left-radius:5px;border-bottom-left-radius:5px}div.show_right{position:absolute;right:0;top:50%;transform:translateY(-50%);color:#fff;display:flex;align-items:center}div.show_right div.show-toggle{border:1px solid #fff;padding:10px 10px 13px;border-top-left-radius:20px;border-bottom-left-radius:20px;display:flex;align-items:center;cursor:pointer}div.show_right.hide div.show-toggle:before{content:"«"}div.show_right:not(.hide) div.show-toggle:before{content:"»"}div.show_right.hide div.playlist{display:none}input.fullscreen{display:block;margin:0 auto}
+@charset "UTF-8";
+/** // css to scss  */
+/** https://css2sass.herokuapp.com/ */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto;
+  background: black;
+}
+
+div.ul-container {
+  position: absolute;
+  top: 0;
+  /*
+      left: 50%;
+      transform: translate(-50%, -50%);
+  */
+  /*transform: translateY(-50%);*/
+  /*opacity: 0.5;*/
+  z-index: 9999;
+  /* clickable, if player is fullscreen below */
+}
+div.ul-container > ul {
+  overflow-y: hidden;
+  margin: 0 auto;
+  background: none;
+  /*max-height: 100vh;*/
+  /*max-height: 20px;*/
+}
+div.ul-container > ul > li.category.active > ul {
+  display: none;
+}
+div.ul-container > ul:hover {
+  max-height: 100vh;
+}
+div.ul-container > ul:hover > li.category.active > ul {
+  display: block;
+}
+div.ul-container:hover {
+  /*opacity: 1;*/
+}
+div.ul-container:hover > ul, div.ul-container:hover ul {
+  overflow-y: auto;
+}
+div.ul-container.theme-white-on-black > ul > li.category {
+  background: rgba(0, 0, 0, 0.5);
+  /* white */
+  color: white;
+}
+div.ul-container.theme-black-on-white > ul > li.category {
+  background: rgba(255, 255, 255, 0.5);
+  /* white */
+  color: black;
+}
+div.ul-container.theme-white-on-transparent > ul > li.category {
+  background: transparent;
+  /* white */
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+div.ul-container ::-webkit-scrollbar {
+  /* background */
+  /*height: 6px;*/
+  width: 30px;
+  /*border: 1px solid black;*/
+  /* background transparent/none not possible */
+  /* workaround : 1 px png transparent as base64 encoded */
+  /* src : https://png-pixel.com/ */
+  /*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII=);*/
+  /* if i dont specificy background, then its transparent + align right outside with marign-right */
+  margin-right: -30px;
+}
+div.ul-container ::-webkit-scrollbar-thumb {
+  border: 1px solid black;
+  background: rgba(255, 255, 255, 0.5);
+  -webkit-border-radius: 1ex;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+}
+div.ul-container ::-webkit-scrollbar-corner {
+  /*background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8Xw8AAoMBgDTD2qgAAAAASUVORK5CYII=);*/
+}
+
+ul {
+  padding: 2px;
+  margin: 0 5px;
+  /*background: white;*/
+  /*background: rgba(255,255,255,0.5);*/
+  background: transparent;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-top-left-radius: 5px;
+  /*display: inline-block; !* following stuff is left to it *!*/
+  /*width: 30px;*/
+  /*width: 100%;*/
+  width: auto;
+  display: inline-flex;
+}
+ul:first-child {
+  border: none;
+}
+
+/*ul {*/
+/*    display: flex   !important;*/
+/*    flex-wrap: wrap !important;*/
+/*}*/
+/*ul li:not(.category) {*/
+/*   flex-basis: 100%;*/
+/*}*/
+ul li div.left + span.title, li.category > div > span.title {
+  display: none;
+}
+
+ul:hover li div.left + span.title, ul:hover li.category > div > span.title {
+  display: inline-block;
+}
+ul li {
+  list-style-type: none;
+  cursor: pointer;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  /* vertical center */
+  border-radius: 5px;
+  padding: 3px 5px;
+}
+ul li.category {
+  /*background-color: lightgray;*/
+  background: transparent;
+}
+
+div.ul-container > ul > li.category {
+  /*background: rgba(255,255,255,0.5);*/
+}
+
+ul:hover li.category > div > span.title {
+  /* all categories should be colored */
+  /*font-weight: bold;*/
+  /*text-shadow: 0 0 3px black;*/
+  /*color: white;*/
+  /*text-decoration: underline;*/
+  /*background: lightgray;*/
+  /*border-radius: 5px;*/
+}
+ul li.active:not(.category) {
+  background-color: lightgreen;
+  /*width : 105%;*/
+}
+ul li.active:not(.category):hover {
+  background-color: lightgray;
+  /*width : 105%;*/
+}
+ul li:not(.category):hover {
+  background-color: lightgreen;
+  /*width : 105%;*/
+}
+ul li.active:not(.category):after {
+  /*right: -10px !important;*/
+  background: lightgrey;
+  border-radius: 5px;
+  padding-left: 2px;
+}
+
+/*ul:hover li.active:not(.category):after {*/
+/*    right: -10px !important;*/
+/*}*/
+/*ul li.active:not(.category):after {*/
+/*    content: '►';*/
+/*    position: absolute;*/
+/*    right: -4px;*/
+/*}*/
+span.open-close {
+  color: black;
+  font-weight: bold;
+  background: white;
+  border-radius: 20px;
+  width: 20px;
+  position: absolute;
+  /* vertical center */
+  top: 50%;
+  text-align: center;
+  /* symbol centered, not left */
+  padding: 10px 5px;
+  font-size: 2em;
+  right: -16px;
+  border: 1px solid gray;
+  /*display: inline-block; !* to set width *!*/
+  display: none;
+}
+span.open-close:hover {
+  cursor: pointer;
+}
+
+div.left {
+  /*min-width: 20px;*/
+  width: 30px;
+  /*max-width: 30px;*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.left img.tv-icon {
+  height: auto;
+  max-height: 20px;
+  width: auto;
+  max-width: 30px;
+  /*width:  30px;*/
+}
+div.left img.tv-icon[src*=".svg"], div.left img.tv-icon[src*=".png"], div.left img.tv-icon[src*=".ico"] {
+  /* background for black icons with transparency beckground */
+  /*background: rgba(255,255,255,1);*/
+  /*border-radius: 10px;*/
+  /*padding: 2px;*/
+}
+div.left img.tv-icon.icon-ard-blue {
+  background-color: #001A4B;
+}
+div.left + span.title {
+  padding-left: 5px;
+}
+
+li {
+  height: 100%;
+  /* neighbar containers, so background does NOT fill 100% */
+}
+li.category {
+  /*
+   ul          = display : block
+   li.play     = display: flex
+   li.category = display: inline-flex
+   li          = height: 100%; // background doesnt fill full height to neighbar container
+   */
+  display: inline-flex;
+  /* category horizontal */
+  flex-direction: column;
+}
+li.category div.left {
+  /*width: 100%;*/
+  /*display: flex;*/
+  /*flex-direction: row;*/
+  /*justify-content: left;*/
+}
+li.category ul {
+  width: 100%;
+}
+li.category > div {
+  display: flex;
+  flex-direction: row;
+  /* horizontal */
+  width: 100%;
+  line-height: 100%;
+  padding-left: 10px;
+}
+li.category > div::before {
+  /** pseudo elements cant be vertical centered ? */
+  /** @see https://developer.mozilla.org/en-US/docs/Web/CSS/::before */
+  /** @see https://css-tricks.com/centering-in-the-unknown/ */
+  /** 16px * 16px */
+  content: "›";
+  height: 16px;
+  text-align: center;
+  width: 30px;
+  /*background-color: lightgreen; !* debug *!*/
+  font-size: calc(1em * 1.5);
+  /* transform : scale(1.5,1.5) could be used */
+  transform: rotate(0deg);
+  transition: transform 0.1s;
+  /* wrong "rotate 2s" */
+  /*width: 20px;        !* image width *!*/
+  /*height: 20px;       !* image height *!*/
+  /*padding-left: 5px;  !* image left *!*/
+  /*padding-right: 5px; !* image right *!*/
+  /*transform: rotate(270deg) scale(0.5);*/
+  /*line-height: 1em;*/
+  /*content: '';*/
+  /*background-image: url(https://icons.iconarchive.com/icons/icons8/ios7/16/Arrows-Back-icon.png);*/
+  /*transform: rotate(270deg);*/
+  /*background-size: contain;*/
+  /*background-repeat: no-repeat;*/
+  /*width: 10px;*/
+  /*vertical-align: middle;*/
+  /*background-position: center;*/
+}
+li.category.active > div::before {
+  transform: rotate(90deg);
+}
+li.category.active > ul {
+  display: block;
+}
+li.category:not(.active) {
+  /*background : white;*/
+}
+li.category:not(.active) > ul {
+  display: none;
+}
+
+/*li.category::before{*/
+/*    content: '|';*/
+/*    background: red;*/
+/*}*/
+/*
+div.ul-container > ul > li.category:not(.active):first-child {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+div.ul-container > ul > li.category:not(.active):last-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+*/
+/* mouse right click -> show */
+div.ul-container > ul.active {
+  max-height: 100vh;
+}
+div.ul-container > ul.active > li.category.active > ul {
+  display: block;
+}
+
+/* mouse right click -> show */
+ul.active li div.left + span.title, ul.active li.category > div > span.title {
+  display: inline-block;
+}
+
+iframe {
+  position: fixed;
+  /* mobile -> scrolling left-right, top-down -> video still visible */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+iframe#iframe1 {
+  width: calc((16/9 * 100vh) - 20px);
+  /* to prevene y-scrollbar, when player-controlbar appears */
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: none;
+  margin: 0 auto;
+}
+iframe#iframe1.fullscreen {
+  /*width already 100% on fullscreen via width-scaling */
+}
+iframe#frame video {
+  width: 100%;
+}
+
+@media (min-height: calc(9/16 * 100vw)) {
+  /* higher > width / "orientation: portrait" is only a part of the solution */
+  /*  // vertical center video (necessary cause iframe is always to large & real video height not readable inside iframe)
+  // ONLY works, if window = huge height + small width
+  // otherwise video top is below window => cut off
+
+  const width  = window.innerWidth; //(16/9 * height) - 20;
+  const heightCalc = width * 9 / 16;
+  const heightReal = height / 2 - heightCalc / 2
+
+  console.log({height, width, heightCalc, heightReal});
+  */
+  iframe#iframe1:not([src*=youtube]) {
+    /* only on "iframe larger than video-pages / so not on youtube iframes */
+    margin-top: calc(100vh / 2 - (100vw * 9 / 16) / 2);
+  }
+
+  body {
+    /* TODO should be not on youtube-iframes */
+    overflow-y: hidden;
+    /* iframe is to large & width margin-top is larger than screen-height */
+  }
+}
+video {
+  position: fixed;
+  /* mobile -> scrolling left-right, top-down -> video still visible */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: calc((16 - 0.15) * (100vh / 9));
+  height: 100vh;
+  max-width: 100vw;
+  max-height: 100vh;
+  display: none;
+  margin: 0 auto;
+}
+video#test {
+  display: block;
+}
+
+table.playlist {
+  /*border-collapse: collapse;*/
+  /* border-radius + border-color problems */
+  border-spacing: 0;
+  /* workaround*/
+}
+table.playlist.theme-white-on-transparent {
+  color: white;
+  background: transparent;
+  /* white */
+  text-shadow: 0 0 5px black;
+}
+table.playlist.theme-white-on-transparent span.hide {
+  text-shadow: none;
+}
+table.playlist input {
+  background: none;
+  color: white;
+  border-radius: 5px;
+  border: 1px solid white;
+  /* default border is different on each side */
+}
+table.playlist tr.head td:nth-child(1) {
+  text-align: center;
+}
+table.playlist tr.head-sub td {
+  text-align: center;
+}
+table.playlist tr.head-sub td:nth-child(3) {
+  text-align: left;
+  border-left: 1px solid white;
+}
+table.playlist td.td-1 {
+  /* tr:nth-child(2) td:nth-child(2) */
+  text-align: center;
+}
+table.playlist td.td-2 {
+  text-align: left;
+}
+table.playlist td.td-3 {
+  border-left: 1px solid white;
+}
+table.playlist tr td {
+  padding: 0 5px;
+}
+table.playlist td span.hide {
+  color: transparent;
+}
+table.playlist.small td span.title {
+  /* ellipsis - what is necessary to get it working */
+  /* https://stackoverflow.com/a/17783233 */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  overflow: hidden;
+  display: inline-block;
+  /* ellipsis - what is necessary to get it working */
+  /* https://stackoverflow.com/a/17783233 */
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 140px;
+  overflow: hidden;
+  display: inline-block;
+}
+table.playlist.small .small-hide {
+  display: none;
+}
+table.playlist.small .small-title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 90px;
+  overflow: hidden;
+  display: inline-block;
+}
+table.playlist.hide {
+  display: none;
+}
+table.playlist:hover {
+  /*overflow: hidden;*/
+  /* workaround to see rounded corner on border-collapse, but still rounded corner border itself not visible */
+  /*color: black;*/
+  /*background: rgba(0, 0, 0, 0.7); !* opacity background only *!*/
+  /*border-radius: 10px 0 0 10px;*/
+  /*border-top: 1px solid white;*/
+  /*border-left: 1px solid white;*/
+  /*border-bottom: 1px solid white;*/
+}
+table.playlist tr.play {
+  background: lightgreen;
+}
+table.playlist tr.play td:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  /*overflow: hidden;*/
+}
+
+div.show_right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: white;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+div.show_right div.show-toggle {
+  border: 1px solid white;
+  padding: 10px 10px 13px 10px;
+  /* < char is small, to vertical center it / btw. line-height was no solution */
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+div.show_right.hide div.show-toggle:before {
+  /** @see https://www.compart.com/en/unicode/ */
+  content: "«";
+  /** @see https://www.toptal.com/designers/htmlarrows/ */
+}
+div.show_right:not(.hide) div.show-toggle:before {
+  /** @see https://www.compart.com/en/unicode/ */
+  content: "»";
+  /** @see https://www.toptal.com/designers/htmlarrows/ */
+}
+div.show_right.hide div.playlist {
+  display: none;
+}
+
+input.fullscreen {
+  display: block;
+  /* move to new line */
+  margin: 0 auto;
+  /* center */
+}
